@@ -1,0 +1,13 @@
+{
+  "promptDelete": false,
+  "alwaysUpdateLinks": true,
+  "defaultViewMode": "preview",
+  "readableLineLength": false,
+  "propertiesInDocument": "hidden",
+  "showInlineTitle": false,
+  "autoConvertHtml": false,
+  "livePreview": false,
+  "showUnsupportedFiles": true,
+  "tabSize": 4,
+  "newLinkFormat": "absolute"
+}

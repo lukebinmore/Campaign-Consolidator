@@ -1,0 +1,12 @@
+{
+  "accentColor": "#008f00",
+  "cssTheme": "Prism",
+  "interfaceFontFamily": "Comic Sans MS",
+  "enabledCssSnippets": [
+    "styles",
+    "fontawesome",
+    "remixicon"
+  ],
+  "theme": "obsidian",
+  "nativeMenus": false
+}

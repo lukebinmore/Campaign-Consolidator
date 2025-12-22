@@ -1,0 +1,673 @@
+:root {
+    --bg: rgb(56, 54, 54);
+    --bg-alt: rgb(73, 70, 70);
+    --h1-colour: rgb(255, 255, 255);
+    --h1-bg: rgb(65, 145, 64);
+    --h2-colour: rgb(255, 255, 255);
+    --h2-bg: rgb(41, 97, 40);
+    --h3-colour: rgb(255, 255, 255);
+    --h3-bg: rgb(21, 71, 20);
+    --hr-bg: rgb(34, 59, 34);
+    --details-bg: rgb(0, 0, 0);
+    --details-text: rgb(0, 0, 0);
+    --red-heading-colour: rgb(255, 255, 255);
+    --red-heading-bg: rgb(182, 52, 52);
+    --green-heading-colour: rgb(255, 255, 255);
+    --green-heading-bg: rgb(115, 194, 113);
+    --th-cancelled: rgb(182, 52, 52);
+    --th-in-progress: rgb(196, 199, 26);
+    --th-completed: rgb(36, 146, 50);
+    --text-colour: rgb(255, 255, 255);
+    --button-text: rgb(255, 255, 255);
+    --button-bg: rgb(31, 31, 31);
+    --green-border-colour: rgb(57, 141, 55);
+    --red-border-colour: #c02b2b;
+    --neutral-border-colour: rgb(255, 255, 255);
+    --close-btn-colour: rgb(253, 36, 36);
+    --border-colour: rgb(115, 194, 113);
+    --border-colour-alt: rgba(255, 255, 255, 0.582);
+    --border-radius: 18px;
+    --border-radius-alt: calc(var(--border-radius) / 2);
+    --progress-bg: rgb(0, 255, 0);
+    --padding: 5px;
+    --margin: 20px;
+    --title-bar-height: 62px;
+    --border: 7px outset var(--border-colour);
+    --border-alt: 1px solid var(--border-colour-alt);
+    --border-btn: 4px outset var(--neutral-border-colour);
+    --box-shadow: 2px 2px 20px rgba(255, 255, 255, 0.5);
+    --error-colour: rgb(219, 60, 60);
+}
+
+body * {
+    background-color: inherit;
+}
+
+a {
+    text-decoration-line: none !important;
+}
+
+.markdown-preview-view {
+    padding: 0;
+}
+
+.std-container {
+    text-align: center;
+    margin: var(--margin);
+}
+
+.std-title-bar {
+    background-color: var(--h1-bg) !important;
+    height: var(--title-bar-height);
+    box-shadow: var(--box-shadow);
+    border: var(--border);
+    border-radius: var(--title-bar-height);
+    display: flex;
+}
+
+.std-title-bar .edit-btn {
+    border-radius: var(--border-radius);
+}
+
+.std-title-bar .edit-btn:hover {
+    filter: brightness(0.8);
+    transform: translateY(-1px);
+    box-shadow: var(--box-shadow);
+}
+
+.std-title-bar .edit-btn:active {
+    filter: brightness(0.9);
+    transform: translateY(1px);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.std-title-bar > * {
+    text-align: center;
+    flex: 0 0 auto;
+    margin: 0 var(--margin);
+    border: 0;
+}
+
+.std-title-bar > div > * {
+    font-weight: 900 !important;
+    font-size: 30px !important;
+    text-align: center;
+    
+}
+
+.std-title-bar .std-input, .std-title-bar h1 {
+    flex: 1 1 auto;
+    margin: 0 !important;
+}
+
+.std-title-bar input {
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    color: var(--h1-colour) !important;
+    border-radius: var(--border-radius);
+}
+
+.std-body {
+    width: calc(100% - 2 * var(--margin));
+    margin: 0 auto;
+    border-left: var(--border);
+    border-right: var(--border);
+    border-bottom: var(--border);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    background-color: var(--bg);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 900 !important;
+    padding: var(--padding);
+    margin: 0 !important;
+}
+
+h2 {
+    color: var(--h2-colour) !important;
+    background-color: var(--h2-bg);
+    font-size: 26px !important;
+}
+
+h3 {
+    color: var(--h3-colour) !important;
+    background-color: var(--h3-bg);
+    font-size: 22px !important;
+}
+
+h4 {
+    font-size: 16px !important;
+    border-radius: var(--border-radius);
+    margin: auto 0 !important;
+}
+
+.red-heading {
+    color: var(--red-heading-colour) !important;
+    background-color: var(--red-heading-bg) !important;
+}
+
+.green-heading {
+    color: var(--green-heading-colour) !important;
+    background-color: var(--green-heading-bg) !important;
+}
+
+.std-icon {
+    height: 100% !important;
+    width: inherit;
+    display: block;
+}
+
+.std-icon svg {
+    height: 100%;
+    width: 100%;
+    color: var(--text-colour);
+    margin: 0 !important;
+}
+
+.std-spacer {
+    height: 10px;
+}
+
+.std-image {
+    max-height: 400px;
+    display: block;
+    margin: 0 auto;
+    border-radius: var(--border-radius);
+}
+
+.std-modal-image {
+    width: 100%;
+    border-radius: var(--border-radius);
+    display: block;
+}
+
+.std-image:hover {
+    filter: brightness(1.15);
+    transform: translateY(-1px);
+    box-shadow: var(--box-shadow);
+}
+
+.std-image:active {
+    filter: brightness(0.9);
+    transform: translateY(1px);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.std-table {
+    width: 100%;
+    margin: 0 !important;
+}
+
+.std-table-hr {
+    background-color: var(--hr-bg);
+}
+
+.std-table th {
+    border: 0;
+    width: calc(100% / var(--col-count, 1)) !important;
+}
+
+.std-table th,
+.std-table td {
+    text-align: center;
+    padding: var(--padding);
+    vertical-align: middle !important;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+}
+
+.th-in-progress {
+    border-color: var(--th-in-progress) !important;
+}
+
+.th-completed {
+    border-color: var(--th-completed) !important;
+}
+
+.th-cancelled {
+    border-color: var(--th-cancelled) !important;
+}
+
+.std-input input, .std-input select, .std-textarea textarea {
+    background-color: inherit;
+    width: 100%;
+    border-radius: var(--border-radius);
+    text-align: center;
+    border: 0;
+}
+
+.std-textarea {
+    overflow: hidden;
+    border-radius: var(--border-radius);
+}
+
+.std-textarea textarea {
+    resize: none;
+    width: calc(100% - 4 * var(--padding));
+    height: 150px;
+    padding: calc(var(--padding) * 2);
+    display: block;
+    margin: 0 auto;
+    color: var(--text-colour);
+    font-size: 14px;
+    overflow-y: auto;
+    border: var(--border-alt);
+}
+
+.std-input input:hover, .std-input select:hover,.std-textarea textarea:hover {
+    background-color: black;
+}
+
+.std-button {
+    background-color: var(--button-bg);
+    padding: 0 var(--padding);
+    margin: var(--padding);
+    border: var(--border-btn);
+    border-radius: var(--border-radius);
+    color: var(--button-text) !important;
+    overflow: hidden;
+    font-weight: 900;
+    font-size: 16px;
+    display: block;
+}
+
+.inline-btn {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-shadow: none;
+    background-color: inherit !important;
+    height: 20px !important;
+}
+
+.inline-btn-big {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-shadow: none;
+    background-color: inherit !important;
+    height: 36px !important;
+}
+
+.menu-btn {
+    background-color: transparent !important;
+    border: 0;
+    height: calc(100% - 2 * var(--padding)) !important;
+}
+
+.green-btn {
+    width: calc(100% - 2 * var(--padding));
+    margin: 0 auto;
+    border-color: var(--green-border-colour);
+}
+
+.red-btn {
+    width: calc(100% - 2 * var(--padding));
+    margin: 0 auto;
+    border-color: var(--red-border-colour);
+}
+
+.no-pad {
+    padding: 0 !important;
+}
+
+.no-bg {
+    background-color: transparent;
+}
+
+.std-button:hover {
+    filter: brightness(1.15);
+    transform: translateY(-1px);
+    box-shadow: var(--box-shadow);
+}
+
+.inline-btn:hover {
+    box-shadow: none;
+}
+
+.std-button:active {
+    filter: brightness(0.9);
+    transform: translateY(1px);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.std-button:focus {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+.std-bubble-list {
+    background-color: inherit;
+    display: flex;
+    justify-content: center;
+    gap: var(--padding);
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.std-bubble-list > div {
+    display: flex;
+    background-color: inherit;
+    border: var(--border-alt);
+    border-radius: var(--border-radius);
+    padding: var(--padding);
+    padding-left: calc(2 * var(--padding));
+    overflow: hidden;
+    align-items: center;
+}
+
+.std-bubble-list > div svg {
+    color: var(--close-btn-colour);
+}
+
+.std-bubble-list div:hover {
+    filter: brightness(1.15);
+    transform: translateY(-1px);
+    border: var(--border-alt);
+}
+
+.std-webview > div {
+    display: flex;
+    gap: var(--padding);
+}
+
+.std-webviewe > div * {
+    flex: 0 0 auto !important;
+}
+
+.std-webview > div > div {
+    flex: 1 1 auto;
+}
+
+.std-webview > div > div > input {
+    height: calc(100% - 2 * var(--padding));
+    font-size: 16px;
+    margin: var(--padding) 0;
+}
+
+.std-webview > div > button {
+    width: fit-content;
+    margin: auto var(--padding);
+}
+
+.std-webview webview {
+    min-height: 900px;
+    border-top: 5px solid var(--h2-bg);
+}
+
+.std-details div {
+    width: calc(100% - 4 * var(--padding));
+    margin: 0 auto;
+    border-left: var(--border-alt);
+    border-right: var(--border-alt);
+    border-bottom: var(--border-alt);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    overflow: hidden;
+    border-bottom: none !important;
+}
+
+.std-details details[style*="--depth: 0"]>div {
+    border-bottom: var(--border-alt) !important;
+}
+
+.std-details summary {
+    cursor: pointer;
+    margin-top: var(--padding);
+    padding: 1px;
+    background-color: rgba(86, 161, 92, calc(1 - (var(--depth, 0)) * 0.1));
+}
+
+.std-details summary:hover {
+    filter: brightness(1.15);
+    transform: translateY(-1px);
+    box-shadow: var(--box-shadow);
+}
+
+.std-details summary::marker {
+    content: "";
+}
+
+.std-details summary::before {
+    content: "⮞";
+}
+
+.std-details summary::after {
+    content: "⮜";
+}
+
+.std-details summary::before,
+.std-details summary::after {
+    display: inline-block;
+    transition: transform 0.2s;
+    opacity: 0.8;
+    margin: 0 var(--margin);
+}
+
+.std-details details[open]>summary::before {
+    transform: rotate(90deg);
+}
+
+.std-details details[open]>summary::after {
+    transform: rotate(-90deg);
+}
+
+.std-details summary a {
+    color: var(--text-colour) !important;
+    font-weight: 900;
+    text-decoration: none !important;
+}
+
+.std-details summary a:hover {
+    filter: brightness(85%);
+}
+
+.std-progress {
+    display: flex;
+    gap: var(--padding);
+    margin: 0 var(--padding);
+    border: var(--border-alt);
+    border-radius: var(--border-radius);
+    padding: 1px;
+}
+
+.std-progress > * {
+    width: fit-content;
+    flex: 0 0 auto;
+}
+
+.std-progress input {
+    width: 50px;
+}
+
+.std-progress h4 {
+    flex: 1 1 auto;
+}
+
+.std-progress-bar {
+    flex: 1 1 auto;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    border: var(--border-alt);
+}
+
+.std-progress-bar > div {
+    background-color: var(--progress-bg);
+    height: 100%;
+}
+
+.std-info-card {
+    background-color: var(--bg-alt);
+    display: flex;
+    margin: 0 var(--padding);
+    border-radius: var(--border-radius);
+    border: var(--border-alt);
+    overflow: hidden;
+}
+
+.std-info-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: var(--border-radius);
+}
+
+.std-info-card img:hover {
+    filter: brightness(1.15);
+    transform: translateY(-1px);
+    box-shadow: var(--box-shadow);
+}
+
+.std-info-card img:active {
+    filter: brightness(0.9);
+    transform: translateY(1px);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.std-info-card>div {
+    flex: 1 1 auto;
+}
+
+.std-modal {
+    z-index: 9999;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    text-align: center;
+    top: 0;
+    left: 0;
+}
+
+.std-modal > div {
+    background-color: var(--bg);
+    width: calc(100% - 2 * 80px);
+    max-height: calc(100% - 2 * 80px);
+    margin: 80px;
+    padding: var(--padding);
+    border: var(--border);
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+}
+
+.std-modal .title-container {
+    position: relative;
+}
+
+.std-modal .body {
+    position: relative;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.std-modal .title-container button {
+    border: 0;
+    background-color: transparent !important;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.std-modal .title-container svg {
+    color: var(--close-btn-colour);
+}
+
+.std-modal .modal-field,
+.std-modal .modal-field-checkbox {
+    display: flex;
+    margin: var(--padding) var(--margin);
+    border: var(--border-alt);
+    border-radius: var(--border-radius);
+    padding: var(--padding);
+}
+
+.std-modal .modal-field h4,
+.std-modal .modal-field-checkbox h4 {
+    width: 150px;
+}
+
+.std-modal .modal-field-checkbox input,
+.std-modal .modal-field-checkbox input::after {
+    height: 32px;
+    width: 32px;
+    margin: 0 var(--padding) 0 auto;
+    border-radius: var(--border-radius);
+}
+
+.std-modal .modal-field input,
+.std-modal .modal-field textarea,
+.std-modal .modal-field select{
+    flex: 1 1 auto;
+    text-align: center;
+    border-radius: var(--border-radius);
+    background-color: var(--button-bg);
+    border: 0;
+    font-size: 16px;
+}
+
+.std-modal .modal-field input:hover,
+.std-modal .modal-field textarea:hover,
+.std-modal .modal-field select:hover {
+    filter: brightness(0.8);
+}
+
+.std-modal .modal-field textarea {
+    resize: none;
+    height: 120px;
+    padding: calc(2 * var(--padding));
+}
+
+.std-modal .modal-field select[multiple] {
+    max-height: 100px;
+    height: auto;
+    overflow-y: auto;
+    padding: var(--padding);
+}
+
+.std-modal .modal-field select[multiple]:hover {
+    filter: brightness(1);
+}
+
+.std-modal .modal-field select[multiple] option {
+    border-radius: var(--border-radius);
+}
+
+.std-modal .modal-field select[multiple] option:hover,
+.std-modal .modal-field select[multiple] option:checked {
+    background-color: var(--h1-bg);
+}
+
+.std-modal .modal-error-area {
+    color: var(--error-colour);
+}
+
+.mod-container {
+    display: flex;
+    flex-direction: row;
+    gap: var(--padding);
+    border: var(--border-alt);
+    border-radius: var(--border-radius);
+    padding: 1px;
+    align-items: center;
+    margin: 0 var(--padding);
+}
+
+.mod-container * {
+    flex: 0 0 auto;
+    width: fit-content;
+}
+
+.mod-container a {
+    flex: 1 1 auto;
+}
+
+.mod-container p {
+    width: 36px;
+}

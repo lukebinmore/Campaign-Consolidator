@@ -1,0 +1,11 @@
+{
+  "types": {
+    "aliases": "aliases",
+    "cssclasses": "multitext",
+    "tags": "tags",
+    "status": "text",
+    "progress": "number",
+    "checks_required": "number",
+    "materials": "multitext"
+  }
+}

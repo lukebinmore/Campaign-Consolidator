@@ -1,0 +1,20 @@
+{
+  "ITS@@accent-color": false,
+  "ITS@@slrvb-b": false,
+  "ITS@@slrvb-g": false,
+  "ITS@@s-d": false,
+  "ITS@@select": "dnd",
+  "obsidian-prism-theme@@color-schemes-dt": "pt-color-scheme-raven-dt",
+  "obsidian-prism-theme@@color-scheme-style-dt": "pt-color-scheme-style-two-tone-and-border-dt",
+  "obsidian-prism-theme@@accent-style-dt": "pt-accent-style-borderandfilled-dt",
+  "obsidian-prism-theme@@dark-accent-color-preset": "pt-accent-color-green-dt",
+  "obsidian-prism-theme@@highlight-text-accent-dt": "pt-highlight-text-accent-dt",
+  "obsidian-prism-theme@@file-line-width": 1395,
+  "obsidian-prism-theme@@pt-font-disable-ligatures": false,
+  "obsidian-prism-theme@@h6-size": 2,
+  "obsidian-prism-theme@@pt-fade-inactive-tabs": true,
+  "obsidian-prism-theme@@pt-disable-callout-styling": true,
+  "obsidian-prism-theme@@pt-kanban-background-dt": "pt-kanban-background-dots-dt",
+  "obsidian-prism-theme@@pt-kanban-background-lt": "pt-kanban-background-default-lt",
+  "obsidian-prism-theme@@pt-icons-accent": true
+}

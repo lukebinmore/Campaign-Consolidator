@@ -1,0 +1,9 @@
+{
+  "jsFiles": "Assets/Scripts/main.js",
+  "jsFolder": "",
+  "startupScriptNames": [
+    "main"
+  ],
+  "registeredInvocableScriptNames": [],
+  "rerunStartupScriptsOnFileChange": true
+}
