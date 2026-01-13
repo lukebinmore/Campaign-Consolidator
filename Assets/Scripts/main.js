@@ -1141,7 +1141,7 @@ class main {
 
           if (fieldType === "number") {
             input = container.createEl("input", { type: "number", placeholder: placeholder });
-          } else if (fieldType === "textArea") {
+          } else if (fieldType === "textarea") {
             input = container.createEl("textarea");
             input.placeholder = placeholder;
           } else if (fieldType === "select") {
@@ -1196,15 +1196,18 @@ class main {
         results.name = this.titleCase(results.name);
         const code = `\`\`\`dataviewjs\nconst {main} = await cJS();\nawait main.startup();\nmain.notePage();\n\`\`\``;
         const filePath = this.config.paths[`${type}s`] + `/${results.name}.md`;
+        const hasYamlFields = this.config.pageData[type]["yamlFields"];
         if (this.getFile(filePath)) {
           throw new Error("A note with this name already exists");
         }
-        const note = await app.vault.create(filePath, code);
+        const note = await app.vault.create(filePath, hasYamlFields ? code : "");
         await app.fileManager.processFrontMatter(note, (fm) => {
           fm.type = type;
-          for (const field of this.config.pageData[type].yamlFields) {
-            const defaultValue = field.hasOwnProperty(`default`) ? field.default : null;
-            fm[field.field] = results[field.field] ? results[field.field] : defaultValue;
+          if (this.config.pageData[type]["yamlFields"]) {
+            for (const field of this.config.pageData[type].yamlFields) {
+              const defaultValue = field.hasOwnProperty(`default`) ? field.default : null;
+              fm[field.field] = results[field.field] ? results[field.field] : defaultValue;
+            }
           }
         });
 
@@ -1588,8 +1591,13 @@ class main {
    * @throws Will propagate errors from vault read or JSON parsing.
    */
   async loadDB() {
-    const file = this.getFile(this.config.paths.database);
-    const content = await app.vault.read(file);
+    let file = null;
+    if (this.getFile(this.config.paths.database)) {
+      file = this.getFile(this.config.paths.database);
+    } else {
+      file = await app.vault.create(this.config.paths.database, "[]");
+    }
+    let content = await app.vault.read(file);
     return JSON.parse(content);
   }
 

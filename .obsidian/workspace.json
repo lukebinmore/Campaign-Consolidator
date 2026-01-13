@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Index.md",
+                "file": "Assets/Link Database.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Index"
+              "title": "Link Database"
             }
           }
         ]
@@ -180,16 +180,20 @@
   },
   "active": "64476679ac51908a",
   "lastOpenFiles": [
+    "Index.md",
+    "Assets/Link Database.md",
+    "Compendium/Projects/Arcsteel Limb.md",
     "Pages/Sessions Dashboard.md",
+    "Assets/Link Database1.md",
     "Pages/Projects Dashboard.md",
-    "Pages/Players Dashboard.md",
     "Pages/NPCs Dashboard.md",
     "Pages/Locations Dashboard.md",
+    "Pages/Players Dashboard.md",
+    "Compendium/Sessions/13 01 2026.md",
+    "Compendium/Projects/Test.md",
     "Pages/Groups Dashboard.md",
     "Pages/Events Dashboard.md",
-    "Compendium/Projects/Arcsteel Limb.md",
     "Compendium/Projects/Flute Of Flare.md",
-    "Index.md",
     "Compendium/Sessions/03 06 2025.md",
     "Compendium/Sessions/07 02 2025.md",
     "Compendium/Sessions/2025 11 23.md",
@@ -202,10 +206,6 @@
     "Compendium/Projects/Viper Brace.md",
     "Compendium/NPCs/Paul.md",
     "Compendium/Modifications/Broach Of Shielding Combination.md",
-    "Compendium/Modifications/Enthrall Infusion.md",
-    "Compendium/Locations/Child 10.md",
-    "Compendium/Locations/LOCATION 1.md",
-    "Compendium/Locations/Child 1.md",
     "Assets/Scripts/main copy.js",
     "Assets/Scripts/morphdom.js",
     "Assets/Scripts/morphdom.js.crdownload",

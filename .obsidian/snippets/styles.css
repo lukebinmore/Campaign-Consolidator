@@ -533,6 +533,11 @@ h4 {
     flex: 1 1 auto;
 }
 
+.input-error {
+    border: var(--border-alt) !important;
+    border-color: var(--error-colour) !important;
+}
+
 .std-modal {
     z-index: 9999;
     position: fixed;
