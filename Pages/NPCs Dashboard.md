@@ -1,7 +1,6 @@
 ---
 type: Dashboard
 subtype: NPC
-name: NPCs Dashboard
 home: "[[Index]]"
 ---
 

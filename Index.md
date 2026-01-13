@@ -1,7 +1,6 @@
 ---
 type: Dashboard
 subtype: Index
-name: Paragon Treachery
 ---
 
 ```dataviewjs

@@ -1,7 +1,6 @@
 ---
 type: Dashboard
 subtype: Event
-name: Events Dashboard
 home: "[[Index]]"
 ---
 

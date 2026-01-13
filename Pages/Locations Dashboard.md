@@ -1,7 +1,6 @@
 ---
 type: Dashboard
 subtype: Location
-name: Locations Dashboard
 home: "[[Index]]"
 ---
 

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Compendium/Projects/Quickcraft Artisans Kit.md",
+                "file": "Index.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Quickcraft Artisans Kit"
+              "title": "Index"
             }
           }
         ]
@@ -163,11 +163,12 @@
               "title": "Tags"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 256.5,
+    "width": 561.5,
     "collapsed": true
   },
   "left-ribbon": {
@@ -179,19 +180,24 @@
   },
   "active": "64476679ac51908a",
   "lastOpenFiles": [
-    "Pages/Players Dashboard.md",
-    "Index.md",
-    "Compendium/Projects/Flute Of Flare.md",
-    "Compendium/Players/Cassiel Celestine.md",
-    "Pages/Locations Dashboard.md",
-    "Pages/NPCs Dashboard.md",
-    "Pages/Projects Dashboard.md",
     "Pages/Sessions Dashboard.md",
-    "Compendium/Projects/Grellhide Treads.md",
-    "Compendium/Projects/Scryguard Node.md",
+    "Pages/Projects Dashboard.md",
+    "Pages/Players Dashboard.md",
+    "Pages/NPCs Dashboard.md",
+    "Pages/Locations Dashboard.md",
+    "Pages/Groups Dashboard.md",
     "Pages/Events Dashboard.md",
     "Compendium/Projects/Arcsteel Limb.md",
+    "Compendium/Projects/Flute Of Flare.md",
+    "Index.md",
+    "Compendium/Sessions/03 06 2025.md",
+    "Compendium/Sessions/07 02 2025.md",
     "Compendium/Sessions/2025 11 23.md",
+    "Compendium/Locations/Child 2.md",
+    "Compendium/Projects/Quickcraft Artisans Kit.md",
+    "Compendium/Players/Cassiel Celestine.md",
+    "Compendium/Projects/Grellhide Treads.md",
+    "Compendium/Projects/Scryguard Node.md",
     "Compendium/Modifications/Fire Breath Infusion.md",
     "Compendium/Projects/Viper Brace.md",
     "Compendium/NPCs/Paul.md",
@@ -200,11 +206,6 @@
     "Compendium/Locations/Child 10.md",
     "Compendium/Locations/LOCATION 1.md",
     "Compendium/Locations/Child 1.md",
-    "Compendium/Groups/GROUP.md",
-    "Compendium/Events/Test.md",
-    "Compendium/Locations/Child 8.md",
-    "Compendium/Locations/Child 6.md",
-    "Compendium/Locations/Child 2.md",
     "Assets/Scripts/main copy.js",
     "Assets/Scripts/morphdom.js",
     "Assets/Scripts/morphdom.js.crdownload",

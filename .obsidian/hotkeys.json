@@ -54,5 +54,21 @@
       ],
       "key": "I"
     }
+  ],
+  "ai-assistant:chat-mode": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "C"
+    }
+  ],
+  "vault-chat:semantic-search": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "S"
+    }
   ]
 }

@@ -1,7 +1,6 @@
 ---
 type: Dashboard
 subtype: Player
-name: Players Dashboard
 home: "[[Index]]"
 ---
 

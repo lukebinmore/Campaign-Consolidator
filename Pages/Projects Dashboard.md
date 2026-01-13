@@ -1,7 +1,6 @@
 ---
 type: Dashboard
 subtype: Project
-name: Projects Dashboard
 home: "[[Index]]"
 ---
 

@@ -1,7 +1,6 @@
 ---
 type: Dashboard
 subtype: Group
-name: Groups Dashboard
 home: "[[Index]]"
 ---
 

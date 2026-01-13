@@ -1,7 +1,6 @@
 ---
 type: Dashboard
 subtype: Session
-name: Sessions Dashboard
 home: "[[Index]]"
 ---
 
