@@ -444,7 +444,7 @@ class main {
     const headers = PD.listColumns.map((c) => c.label);
     for (const note of notes) {
       const nfm = this.getFM(note);
-      const data = [PD.listColumns.map((c) => nfm[c.field])];
+      const data = [PD.listColumns.map((c) => (c.field === "name" ? note.basename : nfm[c.field]))];
 
       const container = body.createDiv({ cls: "std-info-card" });
       this.makeImage(container, nfm.type, note.basename);
@@ -738,7 +738,10 @@ class main {
     const data = [];
     for (const note of notes) {
       const nfm = this.getFM(note);
-      const row = [...[this.makePageButton(undefined, "Open", note.path)], ...PD.listColumns.map((c) => nfm[c.field])];
+      const row = [
+        ...[this.makePageButton(undefined, "Open", note.path)],
+        ...PD.listColumns.map((c) => (c.field === "name" ? note.basename : nfm[c.field])),
+      ];
       data.push(row);
     }
 
@@ -1462,7 +1465,7 @@ class main {
    */
   sortValues(values, sortField = "basename") {
     if (!values.length) return values;
-    if ("href" in values[0]) return values.sort((a, b) => a.display.localeCompare(b.display));
+    if ("href" in values[0]) return values.sort((a, b) => a["href"].localeCompare(b["href"]));
     if (sortField === "project_status") {
       const statusOrder = ["In Progress", "Not Started", "Completed", "Cancelled"];
       const grouped = statusOrder.map((status) =>
