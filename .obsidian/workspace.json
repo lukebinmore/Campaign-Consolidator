@@ -4,53 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "4ac6de97131a6370",
+        "id": "f0b9082de9b25446",
         "type": "tabs",
         "children": [
           {
-            "id": "061bd796d5eb2153",
+            "id": "527626554133aaaa",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Pages/Locations Dashboard.md",
+                "file": "Index.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Locations Dashboard"
-            }
-          },
-          {
-            "id": "d1a28f91f5326591",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Compendium/Locations/Tyrmel.md",
-                "mode": "preview",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "Tyrmel"
-            }
-          },
-          {
-            "id": "8bb0a59c48f08f25",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Pages/Locations Dashboard.md",
-                "mode": "preview",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "Locations Dashboard"
+              "title": "Index"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -113,7 +84,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "Pages/Scripts.md",
+                "file": "Index.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -136,12 +107,12 @@
                   "repelStrength": 10,
                   "linkStrength": 1,
                   "linkDistance": 250,
-                  "scale": 0.9999999999999999,
+                  "scale": 0.9999999999999992,
                   "close": true
                 }
               },
               "icon": "lucide-git-fork",
-              "title": "Graph of Scripts"
+              "title": "Graph of Index"
             }
           },
           {
@@ -150,17 +121,17 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Compendium/Projects/Viper Brace/Lesser Fire Gem Infusion.md",
+                "file": "Assets/Link Database.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
                 "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
+                "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Lesser Fire Gem Infusion"
+              "title": "Backlinks for Link Database"
             }
           },
           {
@@ -169,12 +140,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Compendium/Projects/Viper Brace/Lesser Fire Gem Infusion.md",
+                "file": "Assets/Link Database.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Lesser Fire Gem Infusion"
+              "title": "Outgoing links from Link Database"
             }
           },
           {
@@ -192,8 +163,7 @@
               "title": "Tags"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
@@ -207,34 +177,38 @@
       "graph:Open graph view": false
     }
   },
-  "active": "8bb0a59c48f08f25",
+  "active": "527626554133aaaa",
   "lastOpenFiles": [
+    "Assets/Images/Dashboard - Index.png",
+    "Assets/Images/Player - Cassiel Celestine.png",
     "Index.md",
-    "Pages/NPCs Dashboard.md",
-    "Compendium/Locations/Tyrmel.md",
+    "Assets/Images/Default/Dashboard - Index.png",
+    "Compendium/Locations/Altref.md",
+    "Assets/Images/Default/Dashboard - Index.jpg",
+    "Assets/Images/Default/Dashboard - Index.jpg.crdownload",
+    "Compendium/Modifications/Broach Of Shielding Combination.md",
+    "Compendium/Locations/Test.md",
     "Pages/Locations Dashboard.md",
-    "Compendium/Locations/Tyrmithia.md",
-    "Compendium/Locations/Atharia.md",
-    "Compendium/Groups/The Dodecad Divinus.md",
-    "Assets/Link Database.md",
-    "Compendium/NPCs/Waukeen.md",
-    "Compendium/NPCs/Tyr.md",
-    "Compendium/NPCs/Tempus.md",
-    "Compendium/NPCs/Shiallia.md",
-    "Compendium/NPCs/Moander.md",
-    "Compendium/NPCs/Loviatar.md",
-    "Compendium/NPCs/Lliira.md",
-    "Compendium/NPCs/Kelemvor.md",
-    "Compendium/NPCs/Ilmater.md",
-    "Compendium/NPCs/Gond.md",
-    "Compendium/NPCs/Cyric.md",
-    "Compendium/NPCs/Asmodeus.md",
-    "Compendium/Sessions/03 06 2025.md",
     "Pages/Groups Dashboard.md",
-    "Pages/Events Dashboard.md",
-    "Pages/Sessions Dashboard.md",
-    "Pages/Projects Dashboard.md",
-    "Pages/Players Dashboard.md",
+    "Compendium/Locations/Yrdy.md",
+    "Compendium/Locations/Atharia.md",
+    "Compendium/Groups/The Alliance Of Good.md",
+    "Compendium/Locations/Tyrmel.md",
+    "Compendium/Projects/Arcsteel Limb.md",
+    "Compendium/Players/Cassiel Celestine.md",
+    "Compendium/NPCs/Asmodeus.md",
+    "Compendium/Modifications/Fire Breath Infusion.md",
+    "Compendium/Locations/Tyrmithia.md",
+    "Compendium/Locations/Hymind.md",
+    "Compendium/Locations/F'ylran.md",
+    "Compendium/Locations/Forstal.md",
+    "Compendium/Locations/Haveld.md",
+    "Compendium/Locations/Porthladd.md",
+    "Compendium/Locations/The Jagged Reaches.md",
+    "Compendium/Locations/Tallies Top Ups.md",
+    "Compendium/Locations/Starbrook Forest.md",
+    "Compendium/Locations/Torsk.md",
+    "Compendium/Locations/Dromyr.md",
     "Assets/Scripts/main copy.js",
     "Assets/Scripts/morphdom.js",
     "Assets/Scripts/morphdom.js.crdownload",
@@ -249,11 +223,6 @@
     "Assets/Icons/tools.svg.crdownload",
     "Assets/Icons/home.svg",
     "Assets/Icons/home.svg.crdownload",
-    "Assets/Icons",
-    "fonts/remixicon.ttf",
-    "fonts/remixicon.symbol.svg",
-    "fonts/remixicon.svg",
-    "Assets/Images/Default/Dashboard - Events Dashboard.png",
-    "Assets/Images/Default/Dashboard - Events Dashboard.jpg"
+    "Assets/Icons"
   ]
 }

@@ -37,7 +37,7 @@ class main {
     const referenceFolders = [paths.Events, paths.Groups, paths.Locations, paths.NPCs, paths.Players, paths.Projects];
 
     const fields = {
-      name: { field: "name", label: "Name" },
+      age: { field: "age", label: "Age" },
       aliases: {
         field: "aliases",
         label: "Aliases",
@@ -45,7 +45,13 @@ class main {
         placeholder: "Enter comma separated list...",
         default: [],
       },
-      subtype: { field: "subtype", label: "Type" },
+      alignment: { field: "alignment", label: "Alignment" },
+      checksRequired: {
+        field: "checks_required",
+        label: "Checks Required",
+        type: "number",
+      },
+      class: { field: "class", label: "Class" },
       date: { field: "date", label: "Date" },
       description: {
         field: "description",
@@ -53,6 +59,7 @@ class main {
         type: "textarea",
         placeholder: "Enter the description here...",
       },
+      gender: { field: "gender", label: "Gender" },
       goals: {
         field: "goals",
         label: "Goals",
@@ -63,26 +70,18 @@ class main {
       locatedIn: {
         field: "located_in",
         label: "Located In",
-        type: "select",
+        type: "suggestor",
         path: paths.Locations,
         filter: true,
       },
+      name: { field: "name", label: "Name" },
+      player: { field: "player", label: "Player" },
       population: { field: "population", label: "Population" },
-      projectStatus: {
-        field: "project_status",
-        label: "Status",
-        default: "Not Started",
-      },
       progress: {
         field: "progress",
         label: "Progress",
         type: "number",
         default: 0,
-      },
-      checksRequired: {
-        field: "checks_required",
-        label: "Checks Required",
-        type: "number",
       },
       projects: {
         field: "projects",
@@ -93,17 +92,19 @@ class main {
         multi: true,
         default: [],
       },
-      class: { field: "class", label: "Class" },
+      projectStatus: {
+        field: "project_status",
+        label: "Status",
+        default: "Not Started",
+      },
       race: { field: "race", label: "Race" },
-      gender: { field: "gender", label: "Gender" },
-      age: { field: "age", label: "Age" },
-      player: { field: "player", label: "Player" },
+      status: { field: "status", label: "Status" },
+      subtype: { field: "subtype", label: "Type" },
       url: {
         field: "url",
         label: "URL",
         placeholder: "Enter your URL here...",
       },
-      alignment: { field: "alignment", label: "Alignment" },
     };
 
     const pageData = {
@@ -116,14 +117,22 @@ class main {
       },
       Group: {
         sections: ["Image", "Info Table", "Aliases", "Description", "Goals", "Related Notes"],
-        infoTable: [fields.subtype, fields.alignment],
-        modalFields: [fields.name, fields.aliases, fields.subtype, fields.alignment, fields.description, fields.goals],
+        infoTable: [fields.subtype, fields.alignment, fields.status],
+        modalFields: [
+          fields.name,
+          fields.aliases,
+          fields.subtype,
+          fields.alignment,
+          fields.description,
+          fields.goals,
+          fields.status,
+        ],
         modalFieldsReq: [fields.name],
-        yamlFields: [fields.aliases, fields.subtype, fields.description, fields.goals, fields.alignment],
+        yamlFields: [fields.aliases, fields.subtype, fields.description, fields.goals, fields.alignment, fields.status],
       },
       Location: {
         sections: ["Image", "Info Table", "Aliases", "Description", "Related Notes", "Known Locations"],
-        infoTable: [fields.locatedIn, fields.subtype, fields.population],
+        infoTable: [fields.locatedIn, fields.subtype, fields.population, fields.status],
         modalFields: [
           fields.name,
           fields.aliases,
@@ -131,13 +140,21 @@ class main {
           fields.description,
           fields.locatedIn,
           fields.population,
+          fields.status,
         ],
         modalFieldsReq: [fields.name],
-        yamlFields: [fields.aliases, fields.description, fields.locatedIn, fields.subtype, fields.population],
+        yamlFields: [
+          fields.aliases,
+          fields.description,
+          fields.locatedIn,
+          fields.subtype,
+          fields.population,
+          fields.status,
+        ],
       },
       NPC: {
         sections: ["Image", "Info Table", "Aliases", "Description", "Related Notes"],
-        infoTable: [fields.alignment, fields.class, fields.race, fields.gender, fields.age],
+        infoTable: [fields.alignment, fields.class, fields.race, fields.gender, fields.age, fields.status],
         modalFields: [
           fields.name,
           fields.aliases,
@@ -147,6 +164,7 @@ class main {
           fields.race,
           fields.gender,
           fields.age,
+          fields.status,
         ],
         modalFieldsReq: [fields.name, fields.description],
         yamlFields: [
@@ -157,11 +175,12 @@ class main {
           fields.gender,
           fields.age,
           fields.alignment,
+          fields.status,
         ],
       },
       Player: {
         sections: ["Image", "Info Table", "Aliases", "Related Notes", "Webview"],
-        infoTable: [fields.class, fields.race, fields.gender, fields.age, fields.player],
+        infoTable: [fields.class, fields.race, fields.gender, fields.age, fields.player, fields.status],
         webview: { label: "Character Sheet", field: fields.url },
         modalFields: [
           fields.name,
@@ -170,11 +189,21 @@ class main {
           fields.race,
           fields.gender,
           fields.age,
+          fields.status,
           fields.player,
           fields.url,
         ],
         modalFieldsReq: [fields.name, fields.player],
-        yamlFields: [fields.aliases, fields.class, fields.race, fields.gender, fields.age, fields.player, fields.url],
+        yamlFields: [
+          fields.aliases,
+          fields.class,
+          fields.race,
+          fields.gender,
+          fields.age,
+          fields.player,
+          fields.status,
+          fields.url,
+        ],
       },
       Project: {
         sections: ["Image", "Progress", "Aliases", "Description", "Modifications", "Related Notes", "Webview"],
@@ -977,24 +1006,36 @@ class main {
     const placeholder = field.placeholder ? field.placeholder : "-";
     const inputContainer = parent ? parent.createDiv({ cls: cls }) : createDiv({ cls: cls });
     let input;
+    let notes;
 
     switch (type) {
-      case "select":
-        input = inputContainer.createEl("select");
-        input.createEl("option", { text: "-", value: "" });
+      case "suggestor":
+        let tempValue = fmValue;
+        if (fieldKey === "located_in" && tempValue) {
+          tempValue = tempValue
+            .replace(/\[\[|\]\]/g, "")
+            .replace(".md", "")
+            .split("/")[2];
+        }
 
-        let results = this.getChildren(field.path);
-        if (field.filter && field.field === "located_in")
-          results = this.getLocationHierarchy(results, this.currFile.path, false);
-
-        results.forEach((opt) => {
-          if (opt.path !== this.currFile.path) {
-            const name = opt.basename;
-            const optPath = this.convertToTag(opt.path);
-            const optionEl = input.createEl("option", { text: name, value: optPath });
-            if (optPath === this.fm[fieldKey]) optionEl.selected = true;
-          }
+        input = inputContainer.createEl("input", {
+          type: "text",
+          value: tempValue,
+          placeholder: placeholder,
+          attr: { list: `${fieldKey}-list` },
         });
+        const datalist = inputContainer.createEl("datalist", { attr: { id: `${fieldKey}-list` } });
+        notes = this.getChildren(field.path);
+
+        if (field.filter && field.field === "located_in") {
+          notes = this.getLocationHierarchy(notes, this.currFile.path, false);
+        }
+
+        for (const note of notes) {
+          datalist.createEl("option", { text: note.basename });
+        }
+
+        notes = notes.map((n) => n.path);
         break;
 
       case "textarea":
@@ -1003,18 +1044,28 @@ class main {
         input.placeholder = placeholder;
         break;
 
-      case "number":
-        input = inputContainer.createEl("input", { type: "number", value: fmValue, placeholder: placeholder });
-        break;
-
       default:
-        input = inputContainer.createEl("input", { type: "text", value: fmValue, placeholder: placeholder });
+        input = inputContainer.createEl("input", { type: type, value: fmValue, placeholder: placeholder });
     }
 
     input.addEventListener("change", (ev) => {
       if (this.fm[fieldKey] !== ev.target.value) {
+        let newValue = typeof this.fm[fieldKey] === "number" ? +ev.target.value : ev.target.value;
+
+        if (fieldKey === "located_in" && newValue != "") {
+          newValue = this.convertToLink(["Locations", newValue]);
+
+          input.classList.remove("input-error");
+          if (!notes.includes(newValue)) {
+            input.classList.add("input-error");
+            return;
+          }
+
+          newValue = this.convertToTag(newValue);
+        }
+
         app.fileManager.processFrontMatter(this.currFile, (fm) => {
-          fm[fieldKey] = typeof fm[fieldKey] === "number" ? +ev.target.value : ev.target.value;
+          fm[fieldKey] = newValue;
         });
       }
     });
@@ -1102,6 +1153,7 @@ class main {
           for (const error of errors) {
             const errorDiv = errorArea.createDiv({ cls: "modal-error-message" });
             errorDiv.createEl("span", { text: error });
+            this.makeSpacer(errorArea);
           }
         }
 
@@ -1114,7 +1166,8 @@ class main {
             }
           } catch (error) {
             const errorDiv = errorArea.createDiv({ cls: "modal-error-message" });
-            errorDiv.createEl("span", { text: `Error: ${error.message || "An unexpected error occurred"}` });
+            errorDiv.createEl("span", { text: error.message || "An unexpected error occurred" });
+            this.makeSpacer(errorArea);
           }
         }
       });
@@ -1130,6 +1183,8 @@ class main {
    * @returns {void}
    */
   makeNewNoteModal(type) {
+    let notes;
+
     this.makeModal(
       `Create New ${type}`,
       (modal) => {
@@ -1150,9 +1205,9 @@ class main {
           } else if (fieldType === "select") {
             input = container.createEl("select");
             input.createEl("option", { text: "-", value: "" });
-            let results = this.sortValues(this.getChildren(field.path));
+            notes = this.sortValues(this.getChildren(field.path));
 
-            results.forEach((opt) => {
+            notes.forEach((opt) => {
               const name = opt.basename;
               const optPath = this.convertToTag(opt.path);
               const optionEl = input.createEl("option", { text: name, value: optPath });
@@ -1162,6 +1217,20 @@ class main {
             if (multi) {
               input.multiple = true;
               input.size = input.options.length;
+            }
+          } else if (fieldType === "suggestor") {
+            input = container.createEl("input", {
+              type: "text",
+              placeholder: placeholder,
+              attr: { list: `${field.field}-list-modal` },
+            });
+            const datalist = container.createEl("datalist", { attr: { id: `${field.field}-list-modal` } });
+            notes = this.getChildren(field.path);
+            for (const note of notes) {
+              datalist.createEl("option", { text: note.basename });
+              if (note.path === this.currFile.path) {
+                input.value = note.basename;
+              }
             }
           } else {
             input = container.createEl("input", { type: "text", placeholder: placeholder });
@@ -1203,13 +1272,26 @@ class main {
         if (this.getFile(filePath)) {
           throw new Error("A note with this name already exists");
         }
+        if (results["located_in"]) {
+          if (!notes.includes(this.convertToLink(["Locations", results["located_in"]]))) {
+            throw new Error("Location provided does not exist!");
+          }
+        }
+
         const note = await app.vault.create(filePath, hasYamlFields ? code : "");
         await app.fileManager.processFrontMatter(note, (fm) => {
           fm.type = type;
           if (this.config.pageData[type]["yamlFields"]) {
             for (const field of this.config.pageData[type].yamlFields) {
               const defaultValue = field.hasOwnProperty(`default`) ? field.default : null;
-              fm[field.field] = results[field.field] ? results[field.field] : defaultValue;
+              let newValue = results[field.field] ? results[field.field] : defaultValue;
+
+              if (field.field === "located_in") {
+                if (newValue !== "") {
+                  newValue = this.convertToTag(["Locations", newValue]);
+                }
+              }
+              fm[field.field] = newValue;
             }
           }
         });
@@ -1237,60 +1319,46 @@ class main {
 
   /**
    * Present a modal for creating a new relation between two existing notes.
-   * Allows selecting a type/folder for Note A and Note B, then the specific note within that folder.
+   * Allows entering a note to be linked to the currently open note.
    * Validates that the selected notes are not identical and delegates to `addNoteLinks` to persist the relation.
    * @returns {void}
    */
   makeNewRelationModal() {
-    const setOptions = (input, folder, selectCurrent = false) => {
-      const oldOptions = input.querySelectorAll(`option`) || [];
-      for (const option of oldOptions) option.remove();
-      const notes = this.sortValues(this.getChildren(folder));
-      for (const note of notes) {
-        const option = input.createEl("option", { text: note.basename, value: note.path });
-        if (selectCurrent && note.path === this.currFile.path) option.selected = true;
-      }
-    };
+    let links;
+
     this.makeModal(
       "Create New Link",
-      (modal) => {
-        const typeContA = modal.createDiv({ cls: "modal-field" });
-        this.makeInlineHeader(typeContA, "Note A Type");
-        const typeInputA = typeContA.createEl("select");
-        for (const folder of this.config.referenceFolders) {
-          const input = typeInputA.createEl("option", { text: folder.replace("Compendium/", ""), value: folder });
-          if (this.currFile.path.startsWith(folder)) input.selected = true;
+      async (modal) => {
+        const container = modal.createDiv({ cls: "modal-field" });
+        this.makeInlineHeader(container, "Related Note");
+        links = Object.values(await this.getNoteLinks()).flatMap((arr) => arr.map(this.convertToLink, this));
+        let notes = this.config.referenceFolders
+          .flatMap((folder) => this.getChildren(folder))
+          .filter((n) => {
+            if (n.path === this.currFile.path || links.includes(n.path)) {
+              return false;
+            }
+            return true;
+          });
+
+        const input = container.createEl("input", { type: "text", placeholder: "-", attr: { list: "list" } });
+        input.setAttribute(`data-field`, `input`);
+        input.setAttribute(`required`, true);
+
+        const list = container.createEl("datalist", { attr: { id: "list" } });
+        for (const note of notes) {
+          list.createEl("option", { text: `${note.parent.name} - ${note.basename}` });
         }
-
-        const inputContA = modal.createDiv({ cls: "modal-field" });
-        this.makeInlineHeader(inputContA, "Note A");
-        const inputA = inputContA.createEl("select");
-        inputA.setAttribute(`data-field`, `inputA`);
-        inputA.setAttribute(`required`, true);
-        setOptions(inputA, typeInputA.value, true);
-        typeInputA.addEventListener("change", (e) => setOptions(inputA, typeInputA.value));
-
-        this.makeSpacer(modal);
-
-        const typeContB = modal.createDiv({ cls: "modal-field" });
-        this.makeInlineHeader(typeContB, "Note B Type");
-        const typeInputB = typeContB.createEl("select");
-        for (const folder of this.config.referenceFolders)
-          typeInputB.createEl("option", { text: folder.replace("Compendium/", ""), value: folder });
-
-        const inputContB = modal.createDiv({ cls: "modal-field" });
-        this.makeInlineHeader(inputContB, "Note B");
-        const inputB = inputContB.createEl("select");
-        inputB.setAttribute(`data-field`, `inputB`);
-        inputB.setAttribute(`required`, true);
-        setOptions(inputB, this.config.referenceFolders[0]);
-        typeInputB.addEventListener("change", (e) => setOptions(inputB, typeInputB.value));
       },
       async (results) => {
-        if (results.inputA === results.inputB) {
-          throw new Error("Cannot link note to itself!");
+        let link;
+        try {
+          link = this.convertToLink(results.input.split("-").map((s) => s.trim()));
+        } catch {
+          throw new Error("Invalid Note, please try again.");
         }
-        const success = await this.addNoteLinks(results.inputA, results.inputB);
+
+        const success = await this.addNoteLinks(link);
         if (!success) {
           throw new Error("Link already exists between these notes");
         }
@@ -1486,6 +1554,10 @@ class main {
    * @returns {string} The corresponding file path with `.md` suffix.
    */
   convertToLink(tag) {
+    if (Array.isArray(tag)) {
+      return `Compendium/${tag.join("/")}.md`;
+    }
+
     return tag.replace(/\[\[|\]\]/g, "") + ".md";
   }
 
@@ -1496,6 +1568,10 @@ class main {
    * @returns {string} The corresponding tag string wrapped in `[[` and `]]`.
    */
   convertToTag(link) {
+    if (Array.isArray(link)) {
+      link = `Compendium/${link.join("/")}.md`;
+    }
+
     return `[[${link.replace(".md", "")}]]`;
   }
 
