@@ -9,5 +9,6 @@
   "livePreview": false,
   "showUnsupportedFiles": true,
   "tabSize": 4,
-  "newLinkFormat": "absolute"
+  "newLinkFormat": "absolute",
+  "openBehavior": "file:Index"
 }

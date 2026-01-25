@@ -29,15 +29,15 @@
   "showIndexingStatus": false,
   "descriptionOnSuggestion": "Short",
   "hotkeys": {
-    "select": [],
-    "select with custom alias": [],
-    "select with query alias": [
+    "select": [
       {
         "modifiers": [],
         "key": "Enter",
         "hideHotkeyGuide": false
       }
     ],
+    "select with custom alias": [],
+    "select with query alias": [],
     "up": [
       {
         "modifiers": [],
@@ -84,7 +84,7 @@
   "caretLocationSymbolAfterComplement": "",
   "displayedTextSuffix": " => ...",
   "enableInternalLinkComplement": true,
-  "suggestInternalLinkWithAlias": true,
+  "suggestInternalLinkWithAlias": false,
   "excludeInternalLinkPathPrefixPatterns": "",
   "excludeInternalLinkPathGlobPatterns": [],
   "excludeSelfInternalLink": false,
