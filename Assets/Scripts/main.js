@@ -1297,11 +1297,6 @@ class main {
           }
         });
 
-        if (results.open_now) {
-          const leaf = app.workspace.getLeaf(true);
-          await leaf.openFile(note);
-        }
-
         if (results.add_link) {
           const leaf = app.workspace.activeLeaf;
           if (!leaf || !leaf.view || !leaf.view.editor) return;
@@ -1309,6 +1304,11 @@ class main {
           const link = this.convertToTag(filePath);
           editor.replaceRange(link, editor.getCursor());
           editor.setCursor({ line: editor.getCursor().line, ch: editor.getCursor().ch + link.length });
+        }
+
+        if (results.open_now) {
+          const leaf = app.workspace.getLeaf(true);
+          await leaf.openFile(note);
         }
 
         this.notify(`${results.name} Created!`);
