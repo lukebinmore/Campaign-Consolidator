@@ -274,6 +274,7 @@ class main {
           sections: ["Image", "Text List"],
           listPath: paths.Sessions,
           listColumns: [fields.name],
+          sortField: "title_date",
         },
       },
     };
@@ -377,7 +378,7 @@ class main {
 
             await app.fileManager.renameFile(this.currFile, `${sourceFolder}/${results.name}.md`);
             return true;
-          }
+          },
         );
       });
     }
@@ -387,9 +388,9 @@ class main {
       await this.makeIcon("tools"),
       () =>
         this.makeModal("Tools / Scripts", (parent) =>
-          this.makeActionButton(parent, "Convert JPG Images To PNG", () => this.convertJPGs())
+          this.makeActionButton(parent, "Convert JPG Images To PNG", () => this.convertJPGs()),
         ),
-      "menu-btn"
+      "menu-btn",
     );
 
     const body = base.createDiv({ cls: "std-body" });
@@ -597,7 +598,7 @@ class main {
       this.getChildren(this.config.paths.Modifications).filter((f) => {
         const fm = this.getFM(f);
         return fm.projects.includes(this.convertToTag(this.currFile.path));
-      })
+      }),
     );
 
     if (modifications.length != 0) {
@@ -615,7 +616,7 @@ class main {
           () => {
             this.updateProjectProgress("-", mod.path);
           },
-          "red-btn no-pad"
+          "red-btn no-pad",
         );
         container.createEl("p", { text: fm.progress });
         container.appendChild(this.makeLink(mod.path, mod.basename));
@@ -624,7 +625,7 @@ class main {
           container,
           await this.makeIcon("plus"),
           () => this.updateProjectProgress("+", mod.path),
-          "green-btn no-pad"
+          "green-btn no-pad",
         );
 
         this.makeSpacer(body);
@@ -649,7 +650,7 @@ class main {
       container,
       await this.makeIcon("minus"),
       () => this.updateProjectProgress("-"),
-      "red-btn no-pad"
+      "red-btn no-pad",
     );
 
     this.makeYamlInput(container, this.config.fields.progress);
@@ -668,7 +669,7 @@ class main {
       container,
       await this.makeIcon("plus"),
       () => this.updateProjectProgress("+"),
-      "green-btn no-pad"
+      "green-btn no-pad",
     );
 
     this.makeSpacer(body);
@@ -762,7 +763,7 @@ class main {
     this.makeActionButton(body, `Create New ${this.type}`, () => this.makeNewNoteModal(this.type));
     this.makeSpacer(body);
 
-    const notes = this.sortValues(this.getChildren(PD.listPath));
+    const notes = this.sortValues(this.getChildren(PD.listPath), PD.sortField);
     const headers = [...["Open"], ...PD.listColumns.map((c) => c.label)];
     const data = [];
     for (const note of notes) {
@@ -1313,7 +1314,7 @@ class main {
         this.notify(`${results.name} Created!`);
 
         return true;
-      }
+      },
     );
   }
 
@@ -1363,7 +1364,7 @@ class main {
           throw new Error("Link already exists between these notes");
         }
         return true;
-      }
+      },
     );
   }
 
@@ -1392,7 +1393,7 @@ class main {
       async (results) => {
         await this.setValue(field, results[name], false);
         return true;
-      }
+      },
     );
   }
 
@@ -1420,7 +1421,7 @@ class main {
         }
         this.setValue(field, results[name], false);
         return true;
-      }
+      },
     );
   }
   //#endregion
@@ -1534,10 +1535,19 @@ class main {
   sortValues(values, sortField = "basename") {
     if (!values.length) return values;
     if ("href" in values[0]) return values.sort((a, b) => a["href"].localeCompare(b["href"]));
-    if (sortField === "project_status") {
+    if (sortField === "title_date") {
+      return values.sort((a, b) => {
+        let dateComps = [a.basename, b.basename];
+        dateComps.forEach((dc, i) => {
+          dateComps[i] = dc.split(" ").reverse().join("-");
+        });
+
+        return dateComps[1].localeCompare(dateComps[0]);
+      });
+    } else if (sortField === "project_status") {
       const statusOrder = ["In Progress", "Not Started", "Completed", "Cancelled"];
       const grouped = statusOrder.map((status) =>
-        values.filter((f) => this.getFM(f)[sortField] === status).sort((a, b) => a.basename.localeCompare(b.basename))
+        values.filter((f) => this.getFM(f)[sortField] === status).sort((a, b) => a.basename.localeCompare(b.basename)),
       );
       return grouped.flat();
     } else {
