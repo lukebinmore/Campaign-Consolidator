@@ -34,7 +34,15 @@ class main {
       database: "Assets/Link Database.md",
     };
 
-    const referenceFolders = [paths.Events, paths.Groups, paths.Locations, paths.NPCs, paths.Players, paths.Projects];
+    const referenceFolders = [
+      paths.Events,
+      paths.Groups,
+      paths.Locations,
+      paths.NPCs,
+      paths.Players,
+      paths.Projects,
+      paths.Modifications,
+    ];
 
     const fields = {
       age: { field: "age", label: "Age" },
@@ -699,7 +707,8 @@ class main {
     this.makeSpacer(body);
     const links = [];
     for (let path of this.fm.projects) {
-      const basename = this.getFile(this.convertToLink(path)).basename;
+      path = this.convertToLink(path);
+      const basename = this.getFile(path).basename;
       links.push(this.makeLink(path, basename));
     }
     const container = await this.makeBubbleList(body, links, remove);
@@ -1274,7 +1283,8 @@ class main {
           throw new Error("A note with this name already exists");
         }
         if (results["located_in"]) {
-          if (!notes.includes(this.convertToLink(["Locations", results["located_in"]]))) {
+          const resultsPath = this.convertToLink(["Locations", results["located_in"]]);
+          if (!this.getFile(resultsPath)) {
             throw new Error("Location provided does not exist!");
           }
         }
@@ -1302,8 +1312,8 @@ class main {
           if (!leaf || !leaf.view || !leaf.view.editor) return;
           const editor = leaf.view.editor;
           const link = this.convertToTag(filePath);
-          editor.replaceRange(link, editor.getCursor());
-          editor.setCursor({ line: editor.getCursor().line, ch: editor.getCursor().ch + link.length });
+          await editor.replaceRange(link, editor.getCursor());
+          await editor.setCursor({ line: editor.getCursor().line, ch: editor.getCursor().ch + link.length });
         }
 
         if (results.open_now) {
