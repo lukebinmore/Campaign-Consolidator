@@ -66,6 +66,7 @@ class main {
         label: "Description",
         type: "textarea",
         placeholder: "Enter the description here...",
+        default: "",
       },
       gender: { field: "gender", label: "Gender" },
       goals: {
@@ -174,7 +175,7 @@ class main {
           fields.age,
           fields.status,
         ],
-        modalFieldsReq: [fields.name, fields.description],
+        modalFieldsReq: [fields.name],
         yamlFields: [
           fields.aliases,
           fields.description,
@@ -218,27 +219,13 @@ class main {
         webview: { label: "Homebrew Item", field: fields.url },
         modalFields: [fields.name, fields.aliases, fields.checksRequired, fields.description, fields.url],
         modalFieldsReq: [fields.name, fields.checksRequired, fields.description],
-        yamlFields: [
-          fields.aliases,
-          fields.projectStatus,
-          fields.progress,
-          fields.checksRequired,
-          fields.description,
-          fields.url,
-        ],
+        yamlFields: [fields.aliases, fields.projectStatus, fields.progress, fields.checksRequired, fields.url],
       },
       Modification: {
         sections: ["Progress", "Aliases", "Parent Projects", "Description"],
         modalFields: [fields.name, fields.aliases, fields.checksRequired, fields.description, fields.projects],
         modalFieldsReq: [fields.name, fields.checksRequired, fields.description, fields.projects],
-        yamlFields: [
-          fields.aliases,
-          fields.projectStatus,
-          fields.progress,
-          fields.checksRequired,
-          fields.description,
-          fields.projects,
-        ],
+        yamlFields: [fields.aliases, fields.projectStatus, fields.progress, fields.checksRequired, fields.projects],
       },
       Session: {
         modalFields: [fields.name],
